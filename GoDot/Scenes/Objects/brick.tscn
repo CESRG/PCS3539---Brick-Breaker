@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Imports/tutorial.dae" type="PackedScene" id=1]
+[ext_resource path="res://Materials/Crate_Material.material" type="Material" id=2]
+[ext_resource path="res://Scripts/brick.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1.30059, 1.32731 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+color = Color( 0.403922, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = ExtResource( 2 )
+size = Vector3( 1, 1, 1 )
+
+[node name="box" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="plank003" parent="." index="0"]
+layers = 2
+cast_shadow = 0
+
+[node name="StaticBody" type="StaticBody" parent="plank003" index="0" groups=[
+"Bricks",
+]]
+collision_layer = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="plank003/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.754548, 0, 0, 0, 0.735878, 0, 0.252856, 0.36605 )
+shape = SubResource( 1 )
+
+[node name="Explosion" type="Particles" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167497, 0 )
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="ExplosionTimer" type="Timer" parent="Explosion" index="0"]
+[connection signal="timeout" from="Explosion/ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]

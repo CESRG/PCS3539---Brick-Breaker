@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Graphics/logo.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Montserrat/Montserrat-Black.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Graphics/game.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/FadeIn.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/MenuScript.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Button/MenuButton.tscn" type="PackedScene" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="Title Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.2, 0.188235, 0.188235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+margin_right = 1024.0
+margin_bottom = 183.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="Context" type="HBoxContainer" parent="Menu"]
+margin_top = 187.0
+margin_right = 1024.0
+margin_bottom = 419.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/Context"]
+margin_right = 500.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Context/CenterContainer"]
+margin_left = 107.0
+margin_right = 392.0
+margin_bottom = 232.0
+texture = ExtResource( 3 )
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/Context"]
+margin_left = 504.0
+margin_right = 1024.0
+margin_bottom = 232.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Start" parent="Menu/Context/Buttons" instance=ExtResource( 8 )]
+margin_top = 44.0
+margin_right = 520.0
+margin_bottom = 114.0
+scene_to_load = "res://Scenes/MenuScreens/Level Screen.tscn"
+name_label = "Start"
+
+[node name="Settings" parent="Menu/Context/Buttons" instance=ExtResource( 8 )]
+margin_top = 118.0
+margin_right = 520.0
+margin_bottom = 188.0
+scene_to_load = "res://Scenes/MenuScreens/Settings Screen.tscn"
+name_label = "Settings"
+
+[node name="Footer" type="CenterContainer" parent="Menu"]
+margin_top = 423.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Menu/Footer"]
+margin_left = 370.0
+margin_top = 56.0
+margin_right = 654.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Version 1.0
+Brick Breaker Project"
+
+[node name="FadeIn" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn"]
+anims/fade_in = SubResource( 2 )
+[connection signal="_fade_in_finished" from="FadeIn" to="." method="_on_FadeIn_fade_in_finished"]
+[connection signal="animation_finished" from="FadeIn/AnimationPlayer" to="FadeIn" method="_on_AnimationPlayer_animation_finished"]
