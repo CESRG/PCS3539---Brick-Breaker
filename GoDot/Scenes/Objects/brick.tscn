@@ -18,24 +18,26 @@ material = ExtResource( 2 )
 size = Vector3( 1, 1, 1 )
 
 [node name="box" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0717802, 0 )
 script = ExtResource( 3 )
 
 [node name="plank003" parent="." index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.510427 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038496, -0.25123, -0.444476 )
 layers = 2
 cast_shadow = 0
 
 [node name="StaticBody" type="StaticBody" parent="plank003" index="0" groups=[
 "Bricks",
 ]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0131903 )
 collision_layer = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="plank003/StaticBody" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.754548, 0, 0, 0, 0.735878, -0.100009, 0.252856, 0.36605 )
+transform = Transform( 1, 0, 0, 0, 0.754548, 0, 0, 0, 0.735878, -0.0604382, 0.252856, 0.36605 )
 shape = SubResource( 1 )
 
 [node name="Explosion" type="Particles" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167497, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0619758, 0 )
 emitting = false
 lifetime = 0.5
 one_shot = true

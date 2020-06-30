@@ -60,5 +60,5 @@ process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 5 )
 
 [node name="ExplosionTimer" type="Timer" parent="Explosion"]
-[connection signal="timeout" from="Explosion/ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]
 [connection signal="timeout" from="Explosion/ExplosionTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Explosion/ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]

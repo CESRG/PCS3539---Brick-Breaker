@@ -40,21 +40,21 @@ gravity = Vector3( 0, 0, 0 )
 initial_velocity = 10.0
 color = Color( 0.215686, 0.215686, 0.215686, 1 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.231373, 0.231373, 0.231373, 1 )
 metallic = 1.0
 roughness = 0.09
 
-[sub_resource type="CubeMesh" id=4]
-material = SubResource( 5 )
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
 size = Vector3( 1, 1, 1 )
 
 [node name="Metal" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020251, -0.945231, 0.0132139 )
 script = ExtResource( 3 )
 
 [node name="bloco" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263045, 1, 1.02174 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0165851, 1, 0.00852656 )
 layers = 2
 mesh = SubResource( 1 )
 material/0 = null
@@ -70,11 +70,12 @@ collision_layer = 2
 shape = SubResource( 2 )
 
 [node name="Explosion" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0132143 )
 emitting = false
 lifetime = 0.5
 one_shot = true
 process_material = SubResource( 3 )
-draw_pass_1 = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
 
 [node name="ExplosionTimer" type="Timer" parent="Explosion"]
 [connection signal="timeout" from="Explosion/ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]
