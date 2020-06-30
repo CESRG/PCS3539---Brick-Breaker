@@ -17,18 +17,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.48969 )
 stream = ExtResource( 2 )
 unit_db = 1.0
 autoplay = true
-bus = "Music"
 
 [node name="Sounds" type="Spatial" parent="Audio"]
 
 [node name="Box_Sound" type="AudioStreamPlayer3D" parent="Audio/Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.57585 )
 stream = ExtResource( 4 )
-bus = "Sounds"
 
 [node name="Wall_Sound" type="AudioStreamPlayer3D" parent="Audio/Sounds"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.54156 )
 stream = ExtResource( 3 )
-bus = "Sounds"
 
 [node name="Game" parent="." instance=ExtResource( 5 )]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Metal_enferrujado.material" type="Material" id=1]
-[ext_resource path="res://Carbono.material" type="Material" id=2]
+[ext_resource path="res://Materials/Metal_enferrujado.material" type="Material" id=1]
+[ext_resource path="res://Materials/Carbono.material" type="Material" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Cube"

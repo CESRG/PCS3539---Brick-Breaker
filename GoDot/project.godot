@@ -16,10 +16,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Brick Breaker 3D"
-run/main_scene="res://Scenes/Main.tscn"
-config/icon="res://Graphics/logo.png"
+run/main_scene="res://game.tscn"
+config/icon="res://icon.png"
 
 [rendering]
 
-environment/default_clear_color=Color( 0.14902, 0.192157, 0.219608, 1 )
 environment/default_environment="res://default_env.tres"
