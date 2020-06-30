@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/brick.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 1, 1.30059, 1.32731 )
+extents = Vector3( 0.928144, 1.21581, 1.26309 )
 
 [sub_resource type="ParticlesMaterial" id=2]
 spread = 180.0
@@ -21,6 +21,7 @@ size = Vector3( 1, 1, 1 )
 script = ExtResource( 3 )
 
 [node name="plank003" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.510427 )
 layers = 2
 cast_shadow = 0
 
@@ -30,7 +31,7 @@ cast_shadow = 0
 collision_layer = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="plank003/StaticBody" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.754548, 0, 0, 0, 0.735878, 0, 0.252856, 0.36605 )
+transform = Transform( 1, 0, 0, 0, 0.754548, 0, 0, 0, 0.735878, -0.100009, 0.252856, 0.36605 )
 shape = SubResource( 1 )
 
 [node name="Explosion" type="Particles" parent="." index="2"]

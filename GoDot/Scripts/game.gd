@@ -53,7 +53,15 @@ func loadLevel(idx):
 		for i in range(0, $Bricks.get_child_count()):
 			$Bricks.get_child(i).queue_free()
 		for box in data["Levels"][idx]["Boxes"]:
-			var brick= load("res://Scenes/Objects/brick.tscn").instance()
+			var type = ""
+			if (box["Type"] == 1):
+				type = "res://Scenes/Objects/pedra.tscn"	
+			elif(box["Type"] == 2):
+				type = "res://Scenes/Objects/Metal.tscn"
+			else:
+				type = "res://Scenes/Objects/brick.tscn"
+					
+			var brick= load(type).instance()
 			brick.transform.origin= Vector3(box["X"],box["Y"],box["Z"])
 			$Bricks.add_child(brick)
 		get_node("Player").respawn_ball()

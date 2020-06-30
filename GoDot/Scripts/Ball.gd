@@ -15,6 +15,8 @@ func _physics_process(delta):
 				game.won()
 		else:
 			sound.get_node("Wall_Sound").play()
+			if len(get_tree().get_nodes_in_group("Bricks"))==0:
+				game.won()
 			if body.get_parent().is_in_group("Floor"):
 				queue_free()
 				game.loose_life()
